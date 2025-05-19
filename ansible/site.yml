@@ -1,0 +1,5 @@
+- name: Deploy Epin Naka Stack to EC2
+  hosts: epin
+  become: yes
+  roles:
+    - epin

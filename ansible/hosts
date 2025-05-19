@@ -1,0 +1,2 @@
+[epin]
+3.76.210.250 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/epinaka-key

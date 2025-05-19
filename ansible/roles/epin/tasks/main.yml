@@ -1,0 +1,56 @@
+- name: Install required APT packages
+  apt:
+    name:
+      - docker.io
+      - curl
+    state: present
+    update_cache: yes
+
+- name: Enable and start Docker
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install Docker Compose manually (v2.36.0)
+  shell: |
+    curl -L "https://github.com/docker/compose/releases/download/v2.36.0/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+  args:
+    creates: /usr/local/bin/docker-compose
+
+- name: Create /var/www/epin directory
+  file:
+    path: /var/www/epin
+    state: directory
+    mode: '0755'
+
+- name: Archive project locally
+  delegate_to: localhost
+  become: false
+  run_once: true
+  shell: |
+    tar czf /tmp/epin.tar.gz -C {{ role_path }}/files .
+  args:
+    executable: /bin/bash
+
+- name: Upload project to remote server
+  copy:
+    src: /tmp/epin.tar.gz
+    dest: /var/www/epin/epin.tar.gz
+
+- name: Extract archive on server
+  unarchive:
+    src: /var/www/epin/epin.tar.gz
+    dest: /var/www/epin
+    remote_src: yes
+
+- name: Remove archive after extraction
+  file:
+    path: /var/www/epin/epin.tar.gz
+    state: absent
+
+- name: Run Docker Compose
+  command: docker-compose up -d
+  args:
+    chdir: /var/www/epin

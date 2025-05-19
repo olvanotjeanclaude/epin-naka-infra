@@ -1,0 +1,38 @@
+terraform-aws/.ssh
+
+# === Terraform ===
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Optional: ignore tfvars files if they contain secrets
+*.tfvars
+!terraform.tfvars.example  # allow example vars
+
+# === Ansible ===
+# Private keys or SSH files
+ansible/roles/**/files/*.pem
+ansible/roles/**/files/*.key
+ansible/.vault_pass.txt
+ansible/.ssh/
+ansible/*/inventory/*.ini  # if you're storing dynamic inventories
+
+# === VSCode and general ===
+.vscode/
+*.log
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# === System Files ===
+~$*
+*.sublime-workspace
+*.sublime-project
+
+# === Word & Docs ===
+*.docx
+*.pdf
+*.xlsx

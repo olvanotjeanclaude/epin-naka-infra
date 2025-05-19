@@ -1,0 +1,28 @@
+we clone form repo: 
+front: https://github.com/olvanotjeanclaude/commerce (private repo)
+laravel: https://github.com/olvanotjeanclaude/epiapi (private repo)
+
+-Larave
+inside laravel/socket-server:
+    - Dockerfile
+        FROM node:20-alpine
+        WORKDIR /usr/src/app
+        COPY package*.json ./
+        RUN npm install
+        EXPOSE 4000
+        CMD ["npm", "run", "start"]
+    
+    - socket-server/docker-compose.yml
+      services:
+        socket:
+            build: .
+            container_name: socket-server
+            ports:
+            - "4000:4000"
+            volumes:
+            - ./:/usr/src/app
+            working_dir: /usr/src/app
+            command: ["npx", "nodemon", "server.js"]
+
+            restart: unless-stopped 
+    
