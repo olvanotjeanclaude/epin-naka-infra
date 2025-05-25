@@ -106,9 +106,9 @@ ansible-playbook -i hosts site.yml
 
 | Service         | URL                        |
 | --------------- | -------------------------- |
-| Backend API     | http\://<WebPublicIP>      |
-| Socket Server   | http\://<WebPublicIP>:4000 |
-| Frontend (Next) | http\://<WebPublicIP>:3000 |
+| Backend API     | http\://3.121.162.168      |
+| Socket Server   | http\://3.121.162.168:4000 |
+| Frontend (Next) | http\://3.121.162.168:3000 |
 
 ---
 
