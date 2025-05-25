@@ -39,6 +39,15 @@ resource "aws_vpc_security_group_ingress_rule" "allow_websocket" {
   ip_protocol       = "tcp"
 }
 
+resource "aws_vpc_security_group_ingress_rule" "allow_nextjs_frontend" {
+  security_group_id = aws_security_group.app_sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 3000
+  to_port           = 3000
+  ip_protocol       = "tcp"
+  description       = "Allow external access to Next.js frontend on port 3000"
+}
+
 resource "aws_vpc_security_group_ingress_rule" "allow_ping" {
   security_group_id = aws_security_group.app_sg.id
   cidr_ipv4         = "0.0.0.0/0"
