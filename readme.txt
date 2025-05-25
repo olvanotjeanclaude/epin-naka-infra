@@ -9,3 +9,5 @@
    $ ansible --version
    
    #docs: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+- Generate ssh epinaka-key
+   $bash ssh-setup.sh
