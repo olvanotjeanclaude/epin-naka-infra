@@ -9,6 +9,11 @@
 
 ## 🚀 Project Setup
 
+<p align="center">
+  <img src="images/architecture.png" alt="Infrastructure Architecture" width="600"/>
+</p>
+
+
 ### 1. Clone the Repository
 
 ```bash
