@@ -10,4 +10,5 @@
    
    #docs: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 - Generate ssh epinaka-key
-   $sudo bash ssh-setup.sh
+   $ sudo chmod +x setup.sh
+   $ sudo bash ssh-setup.sh

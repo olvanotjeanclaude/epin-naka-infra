@@ -12,6 +12,7 @@ variable "key_name" {
 
 variable "public_key_path" {
   description = "Path to your SSH public key"
+  default     = "~/.ssh/epinaka-key.pub"
 }
 
 variable "ami_id" {
