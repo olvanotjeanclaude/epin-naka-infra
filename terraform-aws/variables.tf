@@ -12,10 +12,8 @@ variable "key_name" {
 
 variable "public_key_path" {
   description = "Path to your SSH public key"
-  default     = "~/.ssh/epinaka-key.pub"
 }
 
 variable "ami_id" {
   description = "Ubuntu 22.04 AMI ID for eu-central-1"
-  default = "ami-03250b0e01c28d196"
 }
