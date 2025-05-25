@@ -3,12 +3,10 @@
 - git clone https://github.com/olvanotjeanclaude/epin-naka-infra.git
 - cd epin-naka-infra
 - Install terraform + Ansible
-   $ sudo chmod +x setup.sh
+   $ sudo chmod +x setup.sh ssh-setup.sh
    $ sudo bash setup.sh
-   $  terraform --version
+   $ terraform --version
    $ ansible --version
    
    #docs: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-- Generate ssh epinaka-key
-   $ sudo chmod +x setup.sh
-   $ sudo bash ssh-setup.sh
+- 

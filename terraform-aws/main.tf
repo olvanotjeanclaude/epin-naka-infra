@@ -8,8 +8,7 @@ resource "aws_key_pair" "access_key" {
 }
 
 resource "aws_instance" "web_server" {
-  # ami           = var.ami_id
-  ami           = "ami-03250b0e01c28d196" #Ubuntu 22.04 AMI ID for eu-central-1
+  ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = aws_key_pair.access_key.key_name
   security_groups = [aws_security_group.app_sg.name]

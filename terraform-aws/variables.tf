@@ -17,4 +17,5 @@ variable "public_key_path" {
 
 variable "ami_id" {
   description = "Ubuntu 22.04 AMI ID for eu-central-1"
+  default = "ami-03250b0e01c28d196"
 }
