@@ -9,6 +9,7 @@
    $ ansible --version
    #docs: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 - Settings
-    cp terraform.tfvars.example terraform.tfvars
+    $ cd terraform-aws/
+    $ cp terraform.tfvars.example terraform.tfvars
 - Go to terraform-aws
    $ cd terraform-aws
