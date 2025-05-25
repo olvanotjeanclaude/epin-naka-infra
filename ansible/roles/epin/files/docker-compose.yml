@@ -16,8 +16,8 @@ services:
   frontend:
     image: olvanotjeanclaude/epin-frontend:latest
     container_name: next-frontend
-    expose:
-      - "3000"
+    ports:
+      - "3000:3000"
     restart: unless-stopped
 
   nginx:

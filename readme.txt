@@ -26,6 +26,20 @@
     $ cd terraform-aws
     $ cp terraform.tfvars.example terraform.tfvars
 
-- Start
+- Provision AWS
   $ terraform init
-  $ terraform plan
+  $ terraform plan 
+  $ terraform apply  #it prompt to confirm, say yes
+  # Note the WebPublicIP = "3.121.162.168" for example
+
+- Setup Ansible
+  1. go to ansible folder: $ cd ../ansible
+  2. Copy the WebPublicIP to hosts like below:
+   <WebPublicIP> ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/epinaka-key
+  3. $  ansible-playbook -i hosts site.yml # Run playbook
+
+- Access the project:
+   * Backend server: http://3.121.162.168 (Laravel run in docker on port 9000)
+   * Socket Server: http://3.121.162.168:4000 (Socket server run in docker on port 4000)
+   * Front end : http://3.121.162.168:3000 (Front end run in dokcer on port 3000)
+   
