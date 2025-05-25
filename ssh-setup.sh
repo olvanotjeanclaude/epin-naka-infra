@@ -23,3 +23,7 @@ fi
 # Show public key
 echo "Here is your public key:"
 cat "$KEY_PATH.pub"
+
+# Export TF variable for Terraform
+export TF_VAR_public_key_path="$KEY_PATH.pub"
+echo "✅ Exported: TF_VAR_public_key_path=$TF_VAR_public_key_path"

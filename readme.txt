@@ -1,5 +1,5 @@
 
-- requirement : Linux
+- requirement : Linux, aws account, if not contact me to provider you the key for test purpose
 - git clone https://github.com/olvanotjeanclaude/epin-naka-infra.git
 - cd epin-naka-infra
 - Install terraform + Ansible
@@ -11,11 +11,21 @@
 
 - Setup ssh:
   $ sudo chmod +x ssh-setup.sh 
-- Setup aws:
-  $ sudo chmod +x configure-aws.sh  
+  $ sudo bash ssh-setup.sh
+
+- AWS CLI config:
+  $ sudo apt install awscli 
+  $ aws configure
+  Enter:
+    - AWS Access Key ID
+    - AWS Secret Access Key
+    - Default region (e.g., eu-central-1)
+     Output format (json is fine)
+
 - Settings
-    $ cd terraform-aws/
+    $ cd terraform-aws
     $ cp terraform.tfvars.example terraform.tfvars
+
 - Start
   $ terraform init
   $ terraform plan
