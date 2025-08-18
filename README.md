@@ -1,11 +1,25 @@
-## 🛠️ Requirements
+# System Requirements
 
-* Linux system
-* AWS account
+**Operating System:**  
+Linux (Ubuntu/Debian recommended)
 
-  > If you don’t have one, contact me to provide test credentials.
+**AWS Account:**  
+Required for provisioning. If you don't have one, contact me for a test key.
 
----
+**Software Dependencies:**  
+bash, sudo, apt-get, curl or wget, gnupg / gpg, software-properties-common
+
+**Hardware Requirements:**  
+- RAM: 1 GB minimum (2 GB recommended)  
+- Disk Space: 2 GB free or more  
+- CPU: 1 core minimum (2+ cores recommended)  
+
+**Network Requirements:**  
+Internet access is required to download packages and repositories.
+
+**Permissions:**  
+Ability to run commands with `sudo`.
+
 
 ## 🚀 Project Setup
 
