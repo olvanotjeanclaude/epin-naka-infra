@@ -119,6 +119,18 @@ Run Ansible playbook:
 ansible-playbook -i hosts site.yml
 ```
 
+### 8. Import Database
+
+To import the database on your remote server:
+
+SSH into the remote Ubuntu EC2 instance:
+
+```bash
+ssh -i ~/.ssh/epinaka-key ubuntu@3.121.162.168 
+```
+```bash
+sudo docker exec -i mariadb-db mysql -u epinaka -ppasswordNaka58. -v epinaka < /var/www/epin/epinaka.sql
+```
 ---
 
 ## 🌐 Access the Project
