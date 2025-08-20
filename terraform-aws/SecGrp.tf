@@ -68,3 +68,12 @@ resource "aws_vpc_security_group_egress_rule" "allowAllOutbound_ipv6" {
   cidr_ipv6         = "::/0"
   ip_protocol       = "-1"
 }
+
+resource "aws_vpc_security_group_ingress_rule" "allow_mysql" {
+  security_group_id = aws_security_group.app_sg.id
+  cidr_ipv4         = "0.0.0.0/0"  # Or restrict to your specific IP(s) for security
+  from_port         = 3306
+  to_port           = 3306
+  ip_protocol       = "tcp"
+  description       = "Allow external access to MySQL"
+}
