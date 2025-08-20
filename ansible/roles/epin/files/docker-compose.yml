@@ -3,8 +3,17 @@ services:
     image: olvanotjeanclaude/epin-backend:latest
     container_name: laravel-app
     expose:
-      - "9000"
+      - "9000:9000" 
     restart: unless-stopped
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: ${MYSQL_DATABASE}
+      DB_USERNAME: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      - mysql
 
   socket:
     image: olvanotjeanclaude/epin-socket:latest
@@ -32,3 +41,20 @@ services:
       - frontend
       - socket
     restart: unless-stopped
+
+  mysql:
+    image: mariadb:10.11  
+    container_name: mariadb-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
